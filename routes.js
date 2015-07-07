@@ -1,6 +1,6 @@
-var React = require('react');
-var { Route } = require('react-router');
+import React from 'react';
+import { Route } from 'react-router';
 
-module.exports = (
+export default (
     <Route handler={require('./views/HelloWorld')} />
 );

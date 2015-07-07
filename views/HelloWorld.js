@@ -1,7 +1,13 @@
-var React = require('react');
+import React, { Component } from 'react';
 
-module.exports = React.createClass({
+class HelloWorld extends Component {
 	render() {
-		return <pre>{JSON.stringify(this.props)}</pre>;
+        var { recipient } = this.props;
+
+		return (
+            <h1>Hello, {recipient}!</h1>
+        );
 	}
-});
+};
+
+export default HelloWorld;

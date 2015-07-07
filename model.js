@@ -1,21 +1,17 @@
-var Rx = require('rx');
+import Rx from 'rx';
+import { filters } from './intents';
+import { combineLatestAsStruct } from './utils';
 
-module.exports = function (defaults) {
+export default function (intents) {
+    var recipient = new Rx.BehaviorSubject();
 
-    var a = new Rx.BehaviorSubject(defaults.a || 1);
-    var b = new Rx.Subject();
+    intents
+        .filter(changeRecipient)
+        .subscribe(([, newRecipient]) => {
+            recipient.onNext(newRecipient);
+        });
 
-    setTimeout(() => {
-        b.onNext(2);
-    }, 5000);
-
-    return {
-        state: Rx.Observable.
-            combineLatest(
-                a,
-                b,
-                (a, b) => { return { a: a, b: b }; }
-            )
-    };
-
+    return combineLatestAsStruct({
+        recipient
+    });
 };
