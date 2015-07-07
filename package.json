@@ -1,0 +1,17 @@
+{
+  "name": "koajs-react-router",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "debug": "^2.2.0",
+    "koa": "^0.21.0",
+    "node-jsx": "^0.13.3",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "rx": "^2.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "app": "node --harmony app.js"
+  }
+}
