@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class HelloWorld extends Component {
-	render() {
+    render() {
         var { recipient } = this.props;
 
-		return (
+        return (
             <h1>Hello, {recipient}!</h1>
         );
-	}
+    }
 };
 
 export default HelloWorld;
