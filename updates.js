@@ -1,10 +1,10 @@
 const changeRecipient  = Symbol("changeRecipient");
 
 export default {
-    intents: {
+    updates: {
         changeRecipient(...args) { return [changeRecipient, ...args]; }
     },
     filters: {
-        changeRecipient([intent]) { return intent === changeRecipient;}
+        changeRecipient([update]) { return update === changeRecipient;}
     }
 };

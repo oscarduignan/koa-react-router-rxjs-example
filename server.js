@@ -4,7 +4,7 @@ import React from 'react';
 import Router from 'react-router';
 import model from './model';
 import routes from './routes';
-import { intents } from './intents';
+import { updates } from './updates';
 
 var app = koa();
 
@@ -12,11 +12,11 @@ app.use(function *() {
     this.body = yield new Promise(resolve => {
         Router.run(routes, this.req.url, (Handler, { query: { recipient } }) => {
 
-            // you pass your model an observable of intents to get your state
+            // you pass your model an observable of updates to get your state
             // here I'm just setting some default values required to generate
             // the state for the application!
             model(Rx.Observable.fromArray([
-                intents.changeRecipient(recipient || "World")
+                updates.changeRecipient(recipient || "World")
             ])).
                 take(1).
                 subscribe(state => {
